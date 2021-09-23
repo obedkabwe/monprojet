@@ -1,0 +1,13 @@
+package com.obedkabwe;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class ProjpringApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
