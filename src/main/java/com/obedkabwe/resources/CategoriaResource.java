@@ -2,14 +2,19 @@ package com.obedkabwe.resources;
 
 
 
-import java.util.ArrayList;
-import java.util.List;
 
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.obedkabwe.Domain.Categoria;
+import com.obedkabwe.service.CategoriaService;
 
 
 @RestController
@@ -17,16 +22,14 @@ import com.obedkabwe.Domain.Categoria;
 
 public class CategoriaResource {
 
-	@RequestMapping(method=RequestMethod.GET)
-	public List<Categoria> listar() {
-		Categoria cat1= new Categoria(1, "informatica");
-		Categoria cat2= new Categoria(2, "escritorio");
+	@Autowired
+	public CategoriaService service;
+	@RequestMapping(value="/{id}", method=RequestMethod.GET)
+	public ResponseEntity<?> find(@PathVariable  Integer id) {
+	
+		Optional<Categoria> obj = service.buscar(id);
 		
-		List<Categoria> lista= new ArrayList<>();
-		lista.add(cat1);
-		lista.add(cat2);
-		
-	return lista;
+	return ResponseEntity.ok().body(obj);
 	}
 	
 
