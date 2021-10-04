@@ -9,10 +9,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.obedkabwe.Domain.Categoria;
 import com.obedkabwe.Domain.Cidade;
+import com.obedkabwe.Domain.Cliente;
+import com.obedkabwe.Domain.Endereco;
 import com.obedkabwe.Domain.Estado;
 import com.obedkabwe.Domain.Produto;
+import com.obedkabwe.Domain.enums.TipoCliente;
 import com.obedkabwe.repositories.CategoriaRepository;
 import com.obedkabwe.repositories.CidadeRepository;
+import com.obedkabwe.repositories.ClienteRepository;
+import com.obedkabwe.repositories.EnderecoRepository;
 import com.obedkabwe.repositories.EstadoRepository;
 import com.obedkabwe.repositories.ProdutoRepository;
 
@@ -27,6 +32,10 @@ public class ProjpringApplication implements CommandLineRunner{
 	private EstadoRepository estadoRepository;
 	@Autowired
 	private CidadeRepository cidadeRepository;
+	@Autowired
+	private ClienteRepository clienteRepository;
+	@Autowired
+	private EnderecoRepository enderecoRepository;
 	public static void main(String[] args) {
 		SpringApplication.run(ProjpringApplication.class, args);
 	}
@@ -69,12 +78,16 @@ public class ProjpringApplication implements CommandLineRunner{
 		cidadeRepository.saveAll(Arrays.asList(c1,c2,c3));
 		
 		
+		Cliente cli1= new Cliente(null, "Obed Kabwe", "kabwe@gmail.com", "791242497", TipoCliente.PESSOAFISCA);
+		cli1.getTelefones().addAll(Arrays.asList("981820345","89737272"));
 		
+		Endereco e1 = new Endereco(null, "Rua Dasdores", "24", "Apt 308", "ceilandia", "394093", c1, cli1);
+		Endereco e2 = new Endereco(null, "Villa ", "4", "Apt 08", "recanto", "3563", c2, cli1);
 		
+		cli1.getEnderecos().addAll(Arrays.asList(e1,e2));
 		
-		
-		
-		
+		clienteRepository.saveAll(Arrays.asList(cli1));
+		enderecoRepository.saveAll(Arrays.asList(e1,e2));
 		
 	}
 
