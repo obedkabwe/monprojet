@@ -15,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.obedkabwe.Domain.enums.TipoCliente;
 
 @Entity
@@ -23,6 +24,8 @@ public class Cliente implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
+	@JsonManagedReference
 	
 	private Integer id;
 	private String nome;
