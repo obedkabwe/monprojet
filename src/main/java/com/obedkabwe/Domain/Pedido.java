@@ -109,13 +109,13 @@ private Date instante;
 	}
 
 
-	public Pedido(Integer id, Date instante, Endereco enderecoDeEntrega, Cliente cliente, Pagamento pagamento) {
+	public Pedido(Integer id, Date instante, Cliente cliente, Endereco enderecoDeEntrega) {
 		super();
 		this.id = id;
 		this.instante = instante;
 		this.enderecoDeEntrega = enderecoDeEntrega;
 		this.cliente = cliente;
-		this.pagamento = pagamento;
+		
 	}
 	
 	
