@@ -26,7 +26,10 @@ public Categoria insert (Categoria obj) {
 }
 	
 	
-	
+public Categoria update (Categoria obj) {
+	buscar(obj.getId());
+	return repo.save(obj);
+}	
 	
 	
 	

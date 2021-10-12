@@ -34,7 +34,7 @@ public class CategoriaResource {
 	@Autowired
 	public CategoriaService service;
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public ResponseEntity<?> find(@PathVariable  Integer id) {
+	public ResponseEntity<Optional<Categoria>> find(@PathVariable  Integer id) {
 	
 		Optional<Categoria> obj = service.buscar(id);
 		
@@ -49,6 +49,12 @@ public class CategoriaResource {
 	
 	    URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 	   return ResponseEntity.created(uri).build();
+	}
+	
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<Void> find(@PathVariable  Integer id, @RequestBody  Categoria obj) {
+	
+		return ResponseEntity.noContent().build();	
 	}
 	
 	
