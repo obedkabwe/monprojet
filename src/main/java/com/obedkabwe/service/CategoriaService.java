@@ -3,6 +3,7 @@ package com.obedkabwe.service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import com.obedkabwe.Domain.Categoria;
@@ -33,7 +34,11 @@ public Categoria update (Categoria obj) {
 	
 	
 	
+public void delete(Integer id) {
 	
+	 repo.deleteById(id);
+	
+}	
 	
 	
 	
