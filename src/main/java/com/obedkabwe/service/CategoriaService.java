@@ -1,5 +1,6 @@
 package com.obedkabwe.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,12 @@ public void delete(Integer id) {
 	
 	 repo.deleteById(id);
 	
+}
+
+
+public List<Categoria> findAll() {
+	// TODO Auto-generated method stub
+	return repo.findAll() ;
 }	
 	
 	
