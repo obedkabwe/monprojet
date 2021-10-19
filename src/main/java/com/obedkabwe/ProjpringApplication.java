@@ -63,9 +63,14 @@ public class ProjpringApplication implements CommandLineRunner{
 		
 		Categoria cat1= new Categoria(1, "informatica");
 		Categoria cat2 = new Categoria(2, "Escritorio");
-		Categoria cat3 = new Categoria(2, "resource humano");
-		Categoria cat4 = new Categoria(2, "limpeza");
-		Categoria cat5 = new Categoria(2, "manutencao");
+		Categoria cat3 = new Categoria(3, "resource humano");
+		Categoria cat4 = new Categoria(4, "limpeza");
+		Categoria cat5 = new Categoria(5, "manutencao");
+		Categoria cat6 = new Categoria(6, "seguranca");
+		Categoria cat7 = new Categoria(7, "acougero");
+		Categoria cat8 = new Categoria(8, "vegetable");
+		Categoria cat9 = new Categoria(9, "diverse");
+		Categoria cat10 = new Categoria(10, "bebida");
 		
 		
 		Produto p1 = new Produto(null, "computador", 2000.00);
@@ -80,7 +85,7 @@ public class ProjpringApplication implements CommandLineRunner{
 		p2.getCategorias().addAll(Arrays.asList(cat1,cat2,cat3));
 		p3.getCategorias().addAll(Arrays.asList(cat1));
 		
-		categoriaRepository.saveAll(Arrays.asList(cat1, cat2,cat3,cat4,cat5));
+		categoriaRepository.saveAll(Arrays.asList(cat1, cat2,cat3,cat4,cat5,cat6,cat7,cat8,cat9,cat10));
 		produtoRepository.saveAll(Arrays.asList(p1,p2,p3));
 		
 	    
