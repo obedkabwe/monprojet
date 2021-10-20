@@ -8,10 +8,10 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
-import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 
 import com.obedkabwe.Domain.Categoria;
+import com.obedkabwe.dto.CategoriaDTO;
 import com.obedkabwe.repositories.CategoriaRepository;
 
 
@@ -70,7 +70,9 @@ catch (DataIntegrityViolationException e) {
      }
 	
 	
-	
+	public Categoria fromDTO(CategoriaDTO objDto) {
+		return new Categoria(objDto.getId(), objDto.getNome());
+	}
 	
 	
 	
